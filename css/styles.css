@@ -1,0 +1,17 @@
+/* Si quieren utilizar CSS personalizado para la tarea, utilicen este archivo */
+.bg-image{
+    background-image:url("../img/IMG_9704.jpg");
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+body {margin:2rem;}
+
