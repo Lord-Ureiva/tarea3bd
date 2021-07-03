@@ -2,11 +2,12 @@ from flask import Flask
 from flask import jsonify
 from config import config
 from models import db
-from models import User
+from models import pais
 from flask import request
 
 def create_app(enviroment):
 	app = Flask(__name__)
+	app.config['JSON_AS_ASCII'] = False
 	app.config.from_object(enviroment)
 	with app.app_context():
 		db.init_app(app)
@@ -18,11 +19,12 @@ enviroment = config['development']
 app = create_app(enviroment)
 
 # Endpoint para obtener todos los usuarios
-@app.route('/api/v1/users', methods=['GET'])
+@app.route('/api/v1/pais', methods=['GET'])
 def get_users():
-	users = [ user.json() for user in User.query.all() ] 
-	return jsonify({'users': users })
+	paises = [ pais.json() for pais in pais.query.all() ] 
+	return jsonify({'pais': paises })
 
+"""
 # Endpoint para obtener el usuario con id <id>
 @app.route('/api/v1/users/<id>', methods=['GET'])
 def get_user(id):
@@ -71,6 +73,6 @@ def delete_user(id):
 	user.delete()
 
 	return jsonify({'user': user.json() })
-
+"""
 if __name__ == '__main__':
 	app.run(debug=True)
