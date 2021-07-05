@@ -1,0 +1,32 @@
+<?php include '../../include/navbar.html'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   <title>Moneda</title>
+</head>
+<body>
+   <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id moneda</th>
+          <th scope="col">sigla</th>
+          <th scope="col">nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for moneda in data %}
+        <tr>
+          <td>{{moneda.id}}</td>
+          <td>{{moneda.sigla}}</td>
+          <td>{{moneda.nombre}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+   
+</body>
+</html>
