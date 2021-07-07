@@ -1,5 +1,18 @@
-# Tarea 3 Entrega 1 Grupo 3
+# Tarea 3 Entrega 1
+# Grupo 3 Dream Team Science Innotavors
+![](img/Dream%20Team%20Logo.png)
 
+## Integrantes:
+
+<center>
+
+| Nombre | Rol |
+| ------ | --- |
+|**Marco Espinoza**  |**201973074-6** |
+|**Juan Mira**       |**201973055-k** |
+|**Javier Peralta**  |**201973019-3** |
+
+</center>
 
 Consideraciones:
 - Para todas las tablas del CRUD, se crearon 2 rutas con el metodo GET, una la cual saca todos los datos, y otra la cual saca un dato en especifico que se le pase por ruta de la forma /api/"Nombre Tabla"/id.
