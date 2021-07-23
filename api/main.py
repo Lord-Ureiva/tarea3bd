@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Blueprint
+from flask import Flask, Blueprint
 from flask import jsonify
 from config import config
 from models import db

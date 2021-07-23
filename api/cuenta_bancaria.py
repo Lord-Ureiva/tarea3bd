@@ -1,5 +1,5 @@
 from models import Cuenta_bancaria
-from flask import Blueprint, render_template
+from flask import Blueprint
 from flask import jsonify
 from flask import request
 

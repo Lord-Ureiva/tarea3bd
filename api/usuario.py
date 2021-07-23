@@ -1,6 +1,6 @@
 from sqlalchemy.sql.expression import null
 from models import Usuario
-from flask import render_template, Blueprint
+from flask import Blueprint
 from flask import jsonify
 from flask import request
 

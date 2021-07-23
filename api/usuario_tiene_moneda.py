@@ -1,5 +1,5 @@
 from models import Usuario_tiene_moneda
-from flask import render_template, Blueprint
+from flask import Blueprint
 from flask import jsonify
 from flask import request
 

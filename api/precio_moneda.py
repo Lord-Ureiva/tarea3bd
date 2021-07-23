@@ -1,10 +1,8 @@
 from models import Precio_moneda
-from flask import render_template, Blueprint
+from flask import  Blueprint
 from flask import jsonify
 from flask import request
-from datetime import datetime
-from flask import app
-import sys 
+
 p_moneda_bp = Blueprint('p_moneda_bp', __name__)
 
 
@@ -12,7 +10,7 @@ p_moneda_bp = Blueprint('p_moneda_bp', __name__)
 def get_precio_moneda_all():
 	precio_monedas = [ precio_moneda.json() for precio_moneda in Precio_moneda.query.all() ]
 	return jsonify({'precio_moneda': precio_monedas} )
-	#return render_template('precio_moneda.html', data = precio_monedas)
+
 
 @p_moneda_bp.route('/<id_moneda>/<fecha>', methods = ['GET'])
 def get_precio_moneda(id_moneda,fecha):

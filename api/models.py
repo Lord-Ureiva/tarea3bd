@@ -266,4 +266,4 @@ class Precio_moneda(db.Model):
 			return True
 		except:
 			return False
-	
+
