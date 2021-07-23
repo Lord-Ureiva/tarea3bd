@@ -159,8 +159,10 @@ class Usuario(db.Model):
 			db.session.commit()
 
 			return self
-		except:
+		except Exception as E:
+			print(E)
 			return False
+		
 	
 	@classmethod
 	def create(cls, nombre,apellido,correo,contraseña,pais):
@@ -240,7 +242,7 @@ class Precio_moneda(db.Model):
 	def json(self):
 		return {
 			'id_moneda': self.id_moneda,
-			'fecha': self.fecha,
+			'fecha': self.fecha.strftime('%Y-%m-%d %H:%M:%S.%f'),
 			'valor': self.valor,
 		}
 	

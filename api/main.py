@@ -12,6 +12,7 @@ from precio_moneda import p_moneda_bp
 from cuenta_bancaria import cuenta_bancaria_bp
 from moneda import moneda_bp
 from usuario_tiene_moneda import usuario_tiene_moneda_bp
+from consultas import consultas_bp
 ########################################
 
 
@@ -24,6 +25,7 @@ def create_app(enviroment):
 	app.register_blueprint(cuenta_bancaria_bp, url_prefix = '/api/cuenta_bancaria')
 	app.register_blueprint(moneda_bp, url_prefix= '/api/moneda')
 	app.register_blueprint(usuario_tiene_moneda_bp, url_prefix= '/api/usuario_tiene_moneda')
+	app.register_blueprint(consultas_bp, url_prefix= '/api/consultas')
 
 
 	app.config['JSON_AS_ASCII'] = False

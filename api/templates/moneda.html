@@ -5,28 +5,57 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <title>Moneda</title>
 </head>
 <body>
-   <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">id moneda</th>
-          <th scope="col">sigla</th>
-          <th scope="col">nombre</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%for moneda in data %}
-        <tr>
-          <td>{{moneda.id}}</td>
-          <td>{{moneda.sigla}}</td>
-          <td>{{moneda.nombre}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-   
+  <div class="container shadow-lg rounded m-auto p-5">
+
+
+    <div class="well center-block btn btn-xs btn-default">
+      <a href="#info" class="inf btn-success btn">Agregar Moneda</a>
+      </div>
+      <div id="info" class='container-fluid oculto'>
+        <div class="row p-3">
+            <div class="col">
+                <div class="container shadow-sm rounded m-auto p-2">
+                    <form action="../../api_views/CRUD/POSTS/moneda_post.php" method="post">
+                        <div class="form-group">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" class="form-control" placeholder="Nombre" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Sigla">Sigla</label>
+                            <input type="text" class="form-control" placeholder="Sigla" name="sigla">
+                        </div>
+                        
+                        <div class='d-flex justify-content-end'>
+                            <button type="submit" class="btn btn-primary">Crear Moneda</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <script src="animation.js"></script>
+
+
+
+      <div class="table-responsive">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Sigla</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <?php include '../../api_views/CRUD/GETS/moneda.php'; ?>
+              </tbody>
+            </table>
+      </div>
+  </div>
 </body>
 </html>

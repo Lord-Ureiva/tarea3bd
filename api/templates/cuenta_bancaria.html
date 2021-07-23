@@ -1,29 +1,59 @@
+<?php include '../../include/navbar.html'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <title>Cuenta bancaria</title>
 </head>
 <body>
-   <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Num Cuenta</th>
-          <th scope="col">Usuario</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%for cuenta_bancaria in data %}
-        <tr>
-          <td>{{cuenta_bancaria.numero_cuenta}}</td>
-          <td>{{cuenta_bancaria.id_usuario}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-   
+  <div class="container shadow-lg rounded m-auto p-5">
+
+
+    <div class="well center-block btn btn-xs btn-default">
+      <a href="#info" class="inf btn-success btn">Agregar Cuenta Bancaria</a>
+      </div>
+      <div id="info" class='container-fluid oculto'>
+        <div class="row p-3">
+            <div class="col">
+                <div class="container shadow-sm rounded m-auto p-2">
+                    <form action="../../api_views/CRUD/POSTS/cuenta_bancaria_post.php" method="post">
+                        <div class="form-group">
+                            <label for="id_usuario">Id Usuario</label>
+                            <input type="text" class="form-control" placeholder="Id Usuario" name="id_usuario" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="balance">Balance</label>
+                          <input type="text" class="form-control" placeholder="Balance" name="balance" required>
+                        </div>
+                        <div class='d-flex justify-content-end'>
+                            <button type="submit" class="btn btn-primary">Crear Cuenta Bancaria</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <script src="animation.js"></script>
+
+
+      <div class="table-responsive">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Numero Cuenta</th>
+                  <th scope="col">ID Usuario</th>
+                  <th scope="col">Balance</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <?php include '../../api_views/CRUD/GETS/cuenta_bancaria.php'; ?>
+              </tbody>
+            </table>
+      </div>
+  </div>
 </body>
 </html>

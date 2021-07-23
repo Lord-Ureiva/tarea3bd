@@ -1,3 +1,4 @@
+<?php include '../../include/navbar.html'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +9,54 @@
    <title>Usuario tiene moneda</title>
 </head>
 <body>
-   <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">id Usuario</th>
-          <th scope="col">id Moneda</th>
-          <th scope="col">balance</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%for usuario_tiene_moneda in data %}
-        <tr>
-          <td>{{usuario_tiene_moneda.id_usuario}}</td>
-          <td>{{usuario_tiene_moneda.id_moneda}}</td>
-          <td>{{usuario_tiene_moneda.balance}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-   
+  <div class="container shadow-lg rounded m-auto p-5">
+
+    <div class="well center-block btn btn-xs btn-default">
+      <a href="#info" class="inf btn-success btn">Agregar Usuario tiene moneda</a>
+      </div>
+      <div id="info" class='container-fluid oculto'>
+        <div class="row p-3">
+            <div class="col">
+                <div class="container shadow-sm rounded m-auto p-2">
+                    <form action="../../api_views/CRUD/POSTS/usuario_tiene_moneda_post.php" method="post">
+                       <div class="form-group">
+                          <label for="email">ID Usuario</label>
+                          <input type="text" class="form-control" placeholder="ID del Usuario" name="idusuario" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="surname">ID Moneda</label>
+                          <input type="text" class="form-control" placeholder="ID de la Moneda" name="idmoneda">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Balance</label>
+                            <input type="text" class="form-control" placeholder="Balance" name="balance" required>
+                        </div>
+                        <!-- NOTA: Los valores están en duro para esta tarea. -->
+                        <div class='d-flex justify-content-end'>
+                            <button type="submit" class="btn btn-primary">Crear Usuario tiene moneda</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <script src="animation.js"></script>
+
+      <div class="table-responsive">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID Usuario</th>
+                  <th scope="col">ID Moneda</th>
+                  <th scope="col">Balance</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <?php include '../../api_views/CRUD/GETS/usuario_tiene_moneda.php'; ?>
+              </tbody>
+            </table>
+      </div>
+  </div>
 </body>
 </html>

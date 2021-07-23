@@ -1,3 +1,4 @@
+<?php include '../../include/navbar.html'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,31 +9,46 @@
    <title>Paises</title>
 </head>
 <body>
-</div>
-<div class="row p-4">
-    <div class="col">
-        <!-- Mostrar aquí los datos de cada usuario -->
-        <div class="container shadow-lg rounded m-auto p-10">
-            <table class="table table-striped ">
+    <div class="container shadow-lg rounded m-auto p-5">
+
+
+      <div class="well center-block btn btn-xs btn-default">
+        <a href="#info" class="inf btn-success btn">Agregar Pais</a>
+        </div>
+        <div id="info" class='container-fluid oculto'>
+          <div class="row p-3">
+              <div class="col">
+                  <div class="container shadow-sm rounded m-auto p-2">
+                      <form action="../../api_views/CRUD/POSTS/pais_post.php" method="post">
+                          <div class="form-group">
+                              <label for="name">Nombre</label>
+                              <input type="text" class="form-control" placeholder="Nombre" name="name" required>
+                          </div>
+                          <div class='d-flex justify-content-end'>
+                              <button type="submit" class="btn btn-primary">Crear Pais</button>
+                          </div>
+                        </form>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <script src="animation.js"></script>
+
+
+        <div class="table-responsive">
+            <table class="table">
                 <thead>
-                    <tr>
-                        <th scope="col">Codigo Pais</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col-4">Acciones</th>
-                    </tr>
+                  <tr>
+                    <th scope="col">Codigo pais</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
                 </thead>
                 <tbody>
-                    <!-- Debería haber una de estas por cada usuario -->
-                    <!-- Link de las Acciones debe llevar el ID del usuario -->
-                    {%for pais in data %}
-                  <tr>
-                    <td>{{pais.cod_pais}}</td>
-                    <td>{{pais.nombre}}</td>
-                    <td><a class="btn btn-warning" name = {{pais.cod_pais}}>Editar</a>
-                    <a class="btn btn-danger" name = {{pais.cod_pais}}>Eliminar</a></td>
-                  </tr>
-                  {% endfor %}
+                    <?php include '../../api_views/CRUD/GETS/pais.php'; ?>
                 </tbody>
-            </table>
+              </table>
+        </div>
+    </div>
 </body>
 </html>

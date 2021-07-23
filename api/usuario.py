@@ -31,7 +31,7 @@ def create_usuario():
 	try:
 		usuario = Usuario.create(json['nombre'],json['apellido'],json['correo'],json['contraseña'],json['pais'])
 	except:
-		usuario = Usuario.create(json['nombre'],None,json['correo'],json['contraseña'],json['pais'])
+		usuario = Usuario.create(json['nombre'],None,json['correo'],json['contraseña'],int(json['pais']))
 
 	if usuario == False:
 			return jsonify({'mensaje': 'Uno de los valores No Existe'}), 400
@@ -52,7 +52,7 @@ def edit_usuario(id):
 	try:
 		usuario.nombre = json['nombre']
 		usuario.apellido = json['apellido']
-		usuario.correo = json['corre']
+		usuario.correo = json['correo']
 		usuario.contraseña = json['contraseña']
 		usuario.pais = json['pais']
 	except:
