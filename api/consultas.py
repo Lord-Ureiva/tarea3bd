@@ -62,7 +62,7 @@ def usuarios_pais(pais):
     INNER JOIN usuario
     ON usuario.pais = pais.cod_pais
 WHERE
-    pais.nombre = """+str(pais))
+    pais.nombre = '{}' """.format(pais))
 	   return result
 
    except:
@@ -107,17 +107,17 @@ def get_valor_hist():
 #-----------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------
 
-def monedas_circulacion():
+def monedas_circulacion(moneda):
       try:
 	      result = db.session.execute("""SELECT 
     sigla as "Moneda", SUM(usuario_tiene_moneda.balance) as "Cantidad Total"
 FROM 
     moneda, usuario_tiene_moneda
 WHERE
-    sigla = 'DOGE' AND
+    sigla = '{}' AND
     moneda.id = usuario_tiene_moneda.id_moneda
     
-GROUP BY sigla""")
+GROUP BY sigla""".format(moneda))
 	      return result
 
       except:
@@ -126,8 +126,8 @@ GROUP BY sigla""")
 
 @consultas_bp.route("/5",methods=['GET'])
 def get_monedas():
-   pais = "Moneda"    #INSERTAR PAIS
-   monedas = [dict(monedas) for monedas in monedas_circulacion().fetchall()]
+   sigla_nombre = "RP"    #INSERTAR MONEDA
+   monedas = [dict(monedas) for monedas in monedas_circulacion(sigla_nombre).fetchall()]
    for moneda in monedas:
       moneda['Cantidad Total'] = float(moneda['Cantidad Total'])
    return jsonify({'monedas': monedas }) 
