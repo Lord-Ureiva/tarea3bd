@@ -2,6 +2,7 @@
 <?php include '../include/navbar.html'; ?>
 <?php include 'sesion_iniciada.php'?>
 
+
 <body>
     <div class="bg-image"></div>
     <div class='container-fluid'>
@@ -34,16 +35,7 @@
                     <div class="form-group">
                         <label for="country">País</label>
                         <select class="form-control" name="country" id="country">
-                          <option value="1">Angola</option>
-                          <option value="2">Sudáfrica</option>
-                          <option value="3">Canadá</option>
-                          <option value="4">Estados Unidos</option>
-                          <option value="5">Chile</option>
-                          <option value="6">Australia</option>
-                          <option value="7">India</option>
-                          <option value="8">Corea del Sur</option>
-                          <option value="9">Rusia</option>
-                          <option value="10">Suiza</option>
+                            <?php include '../api/templates/paises_get_list.php'; echo $final_string;?>
                         </select>
                       </div>
                     <div class='d-flex justify-content-end'></div>

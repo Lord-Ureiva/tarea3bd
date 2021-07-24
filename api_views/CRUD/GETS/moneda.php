@@ -1,7 +1,7 @@
 <?php 
 
 
-
+include '../../user/sesion_iniciada.php';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'http://localhost:5000/api/moneda/');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

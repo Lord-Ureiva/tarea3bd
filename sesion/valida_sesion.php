@@ -14,13 +14,20 @@ if(isset($_SESSION["user"])) {
             <li class="nav-item">
                 <a class="nav-link" href="/user/profile.html">Perfil</a>
             </li>';
+   
 
     if($row["admin"] == 'f'){
             echo '<!-- Solo los usuarios tienen billetera -->
             <li class="nav-item">
+                
+                
                 <a class="nav-link" href="/user/wallet.html">Billetera</a>
             </li>';
     }
+    echo '   <!-- Visible solo si hay una sesión iniciada -->
+            <li class="nav-item">
+            <a class="nav-link" href="../../../api_views/center.html">API</a>
+            </li>';
 
 // Si el usuario en cuestión es Administrador, entonces podrá ver la página CRUD
     if($row["admin"] == 't'){

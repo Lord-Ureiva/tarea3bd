@@ -9,7 +9,7 @@ $final_string = "";
 
 foreach($jsonarray as $datos){
    $final_string .= '
-   <option value='.$datos['cod_pais'].'>'.$datos['nombre'].'</option>
+   <option value='.$datos['cod_pais'].' name = "'.$datos['nombre'].'">'.$datos['nombre'].'</option>
    ';
 }
 ?>

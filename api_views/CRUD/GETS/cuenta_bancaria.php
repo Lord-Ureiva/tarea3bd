@@ -1,4 +1,5 @@
 <?php 
+include '../../user/sesion_iniciada.php';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'localhost:5000/api/cuenta_bancaria/');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

@@ -1,5 +1,7 @@
 <?php
+include '../../user/sesion_iniciada.php';
 include "paises_get_list.php";
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'localhost:5000/api/usuario/');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
